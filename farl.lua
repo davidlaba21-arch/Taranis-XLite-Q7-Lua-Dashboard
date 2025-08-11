@@ -385,7 +385,7 @@ local function drawVoltageImage(start_x, start_y)
   lcd.drawText(start_x + batteryWidth + 4, start_y + 47, "3.3v", SMLSIZE)
   
   -- Now draw how full our voltage is...
-  local voltage = getValue('VFAS')
+  local voltage = getValue('A4')
   voltageLow = 3.3
   voltageHigh = 4.35
   voltageIncrement = ((voltageHigh - voltageLow) / 47)
@@ -415,10 +415,10 @@ local function gatherInput(event)
   currentVoltage = getValue('tx-voltage')
 
   -- Armed / Disarm / Buzzer switch
-  armed = getValue('sa')
+  armed = getValue('sc')
 
   -- Our "mode" switch
-  mode = getValue('sb')
+  mode = getValue('sa')
 
   -- Do some event handling to figure out what button(s) were pressed  :)
   if event > 0 then
